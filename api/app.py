@@ -34,7 +34,7 @@ def predict(acousticness,danceability,valence,duration_ms,speechiness,tempo,rele
     
     X_pred_df = pd.DataFrame.from_dict(X_pred)
     model = load('model.joblib')
-    popularity = model.predict(X_pred_df)
+    popularity = int(model.predict(X_pred_df))
     
     return {'artist': artist,
-            'name':name,'popularity':'popularity'}
+            'name':name,'popularity':popularity}
